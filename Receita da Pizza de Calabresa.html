@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receita de Calabresa!</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        main {
+            padding: 2rem;
+            text-align: center;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        ul, ol {
+            text-align: left;
+            margin: 0 auto;
+            max-width: 600px;
+            padding: 0;
+            list-style-position: inside;
+        }
+        img {
+            display: block;
+            margin: 1rem auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        main h2 {
+            color: #333;
+            margin-top: 2rem;
+        }
+        p {
+            font-size: 1rem;
+            color: #555;
+            max-width: 600px;
+            margin: 1rem auto;
+        }
+        @media (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
+            main {
+                padding: 1rem;
+            }
+            img {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pizza de Calabresa</h1>
+    </header>
+    <main>
+        <h2>Ingredientes</h2>
+        <ul>
+            <li>500g de farinha de trigo</li>
+            <li>300ml de água morna</li>
+            <li>10g de fermento biológico seco</li>
+            <li>1 colher de chá de sal</li>
+            <li>200g de calabresa fatiada</li>
+            <li>200g de queijo mussarela</li>
+            <li>Molho de tomate</li>
+        </ul>
+        <h2>Modo de Preparo</h2>
+        <ol>
+            <li>Em uma tigela, misture a farinha, o fermento e o sal.</li>
+            <li>Adicione a água morna e misture até formar uma massa.</li>
+            <li>Deixe a massa descansar por 1 hora.</li>
+            <li>Abra a massa em formato de pizza e espalhe o molho de tomate.</li>
+            <li>Adicione a calabresa e o queijo por cima.</li>
+            <li>Asse em forno pré-aquecido a 220°C por 20 minutos.</li>
+            <li>Retire do forno e sirva quente.</li>
+        </ol>
+        <h2>Imagem</h2>
+        <img src="pizza_calabresa.jpg" alt="Imagem de uma pizza de calabresa com queijo derretido" style="width: 300px; height: auto;">
+        <p>Essa receita é perfeita para um jantar com amigos ou família. Aproveite!</p>
+
+        <button onclick="compartilharReceita()" style="padding: 10px 20px; background-color: #333; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
+            Compartilhar Receita
+        </button>
+
+        <h2>Outras Receitas</h2>
+        <ul style="list-style: none; padding: 0;">
+            <li><a href="receita_margherita.html" style="color: #333; text-decoration: none;">Pizza Margherita</a></li>
+            <li><a href="receita_portuguesa.html" style="color: #333; text-decoration: none;">Pizza Portuguesa</a></li>
+        </ul>
+
+        <h2>Timer de Preparo</h2>
+        <button onclick="iniciarTimer()" style="padding: 10px 20px; background-color: #333; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
+            Iniciar Timer
+        </button>
+        <p id="timer" style="font-size: 1.5rem; margin-top: 1rem;">20:00</p>
+    </main>
+    <footer>
+        <p>&copy; 2023 Meu Site | <a href="#top" style="color: #fff; text-decoration: none;">Voltar ao topo</a></p>
+    </footer>
+    <script>
+        function iniciarTimer() {
+            let tempo = 20 * 60; // 20 minutos em segundos
+            const timerDisplay = document.getElementById('timer');
+            const intervalo = setInterval(() => {
+                const minutos = Math.floor(tempo / 60);
+                const segundos = tempo % 60;
+                timerDisplay.textContent = `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+                tempo--;
+                if (tempo < 0) {
+                    clearInterval(intervalo);
+                    alert("O tempo acabou!");
+                }
+            }, 1000);
+        }
+
+        function compartilharReceita() {
+            alert("Compartilhe esta receita com seus amigos!");
+        }
+    </script>
+</body>
+</html>
